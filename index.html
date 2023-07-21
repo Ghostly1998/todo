@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="conatiner">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="ToDo" />
+                </a>
+            </div>
+            <ul class="main-menu">
+                    <a href="index.html"><li>Home</li></a>
+                    <li class="add-task-btn">+</li>
+            </ul>
+        </div>
+        <div class="section">
+            <form class="form" method="post">
+                <ul>
+                    <li>
+                        <label for="date">Date:</label>
+                        <input type="date" name="datetime" id="date" min="" required />
+                    </li>
+                    <li><label for="importance">Importance:</label>
+                        <select name="importance" id="importance" required>
+                            <option value="Urgent">Urgent</option>
+                            <option value="Casual">Casual</option>
+                        </select>
+                    </li>
+                    <li><label for="task">Task:</label>
+                        <input type="text" name="task" id="task"required />
+                    </li>
+                    <li><label for="description">Description:</label>
+                        <input type="text" name="description" id="description" required />
+                    </li>
+                    <li class="submit-btn">
+                        <button type="button">Add Task</button>
+                    </li>
+                </ul>
+            </form>
+            <ul class="task-list">
+                
+            </ul>
+        </div>
+        <div class="footer">
+            <p>30 million+ people and teams trust their sanity and productivity to us.</p>
+            <img src="footer-img.png" alt="An image showing various companies using our platfrom">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
