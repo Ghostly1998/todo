@@ -13,16 +13,28 @@ let taskArray = [];
 //add event listener for displaying form to add new task
 addTaskBtn.addEventListener('click',() => {
     form.style.display = 'block';
+    const section = document.getElementsByClassName('section')[0];
+    const ul = document.getElementsByClassName('task-list')[0];
+    //blur background when form opens
+    ul.style.filter = 'blur(10px)'
     //empty any existing values in the feild.
     date.value = '';
     importance.value = '';
     taskHead.value = '';
-    description.value = '';
-    
+    description.value = '';    
 });
 
-//submit user added task and display the task.
+//event listener for add task button.
 submitBtn.addEventListener('click', getValues);
+
+//event listener for closing button.
+const closeBtn = document.getElementsByClassName('close-btn')[0];
+closeBtn.addEventListener('click', () => {
+    //unblur background and hide form.
+    const ul = document.getElementsByClassName('task-list')[0];
+    ul.style.filter = 'none';
+    form.style.display = 'none';
+});
 
 
 //get user entered values
@@ -31,16 +43,15 @@ function getValues() {
     const impData = importance.value;
     const taskHeadData = taskHead.value;
     const descData = description.value;
-    //check if the feildds are filled or not
+    //store value inside an object
     let tempObj = {dateData, impData, taskHeadData, descData};
-    
+    //push object to the task array.
     taskArray.push(tempObj);
-    console.log('not');
-    
     //call localStorage to save data locally.
     storeLocally();
-
-    //Making form disappear once submit button is clicked.
+    //remove blur filter and hide form when add task button is clicked.
+    const ul = document.getElementsByClassName('task-list')[0];
+    ul.style.filter = 'none';
     form.style.display = 'none';
 }
 
@@ -50,12 +61,11 @@ function storeLocally() {
     displayTask();  
 }
 
-// display all tasks on the main page
+// display all tasks stored locally on the main page.
 function displayTask() {
     //get locally stored data and save it in a variable.
     let storedData = JSON.parse(localStorage.taskArray);
     taskArray = storedData;
-    console.log(taskArray);
     //check if any tasks exists locally
     if(taskArray.length !== 0) {
         //get locally stored data and parse it into readable form.
@@ -64,7 +74,7 @@ function displayTask() {
         const ul = document.getElementsByClassName('task-list')[0];
         storedData.forEach(element => {
             let displayData = `${element.taskHeadData},to be accomplished on ${element.dateData}. Description: ${element.descData}, Priority: ${element.impData}.`;
-            // console.log(displayData)
+            //creating li for displaying tasks.
             const li = document.createElement('li');
             li.setAttribute('id', `item-${storedData.indexOf(element)}`);
             li.textContent += displayData;
@@ -72,7 +82,7 @@ function displayTask() {
         });
         
     }
-        
+    // if no tasks are available, prompt user to enter new tasks.
     else {
         prompt('No Tasks Available! Please enter new task.');
     }    

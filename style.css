@@ -37,7 +37,7 @@
 }
 
 .main-menu li:hover{
-    transform: scale(1.3);
+    transform: scale(1.1);
     cursor: pointer;
 }
 
@@ -54,6 +54,36 @@
 
 .form{
     display: none;
+    max-width: 300px;
+    min-width: 300px;
+    position: absolute;
+    border: solid 5px red;
+    margin-top: 50px;
+    margin-left: 50px;
+    z-index: 2;
+}
+
+.form label {
+    width: 40%;
+    padding: 0px;
+    border: none;
+    float: left;
+
+}
+
+.form input {
+    float: left;
+}
+
+.form ul{
+    list-style: none;
+}
+
+.btns{
+    width: 100%;
+    float: inline-end;
+    text-align: center;
+    padding-top: 5px;
 }
 
 .footer{
@@ -65,4 +95,21 @@
 
 .footer img, p{
     padding: 8px;
+}
+
+.task-list{
+    font-size: large;
+    list-style: none;
+}
+
+.task-list li{
+    border: solid black 0.2px;
+    margin: 5px 0px 5px 0px;
+    box-shadow: 5px;
+    transition: transform .2 ease;
+}
+
+.task-list li:hover{
+    transform: scale(1.05);
+    box-shadow: 8px 8px 10px 6px gray;
 }

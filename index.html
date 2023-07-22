@@ -22,10 +22,9 @@
         <div class="section">
             <form class="form" method="post">
                 <ul>
-                    <li>
-                        <label for="date">Date:</label>
+                    <li><label for="date">Date:</label>
                         <input type="date" name="datetime" id="date" min="" required />
-                    </li>
+                    </li><br>
                     <li><label for="importance">Importance:</label>
                         <select name="importance" id="importance" required>
                             <option value="Urgent">Urgent</option>
@@ -37,9 +36,10 @@
                     </li>
                     <li><label for="description">Description:</label>
                         <input type="text" name="description" id="description" required />
-                    </li>
-                    <li class="submit-btn">
-                        <button type="button">Add Task</button>
+                    </li><br>
+                    <li class="btns">
+                        <button class="submit-btn" type="button">Add Task</button>
+                        <button class="close-btn" type="button">Close</button>
                     </li>
                 </ul>
             </form>
