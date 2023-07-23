@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- linking the css file -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- container div for all html -->
     <div class="conatiner">
         <div class="navbar">
             <div class="logo">
+                <!-- setting the logo to lead to homepage -->
                 <a href="index.html">
+                    <!-- logo image -->
                     <img src="logo.png" alt="ToDo" />
                 </a>
             </div>
+            <!-- ul for displaying navigation bar options -->
             <ul class="main-menu">
                     <a href="index.html"><li>Home</li></a>
                     <li class="add-task-btn">+</li>
             </ul>
         </div>
         <div class="section">
+            <!-- form for entering new tasks -->
             <form class="form" method="post">
                 <ul>
                     <li><label for="date">Date:</label>
@@ -43,15 +49,18 @@
                     </li>
                 </ul>
             </form>
+            <!-- an empty ul to display tasks on main webpage -->
             <ul class="task-list">
                 
             </ul>
         </div>
+        <!-- footer for further information -->
         <div class="footer">
             <p>30 million+ people and teams trust their sanity and productivity to us.</p>
             <img src="footer-img.png" alt="An image showing various companies using our platfrom">
         </div>
     </div>
+    <!-- adding the javascript file -->
     <script src="script.js"></script>
 </body>
 </html>

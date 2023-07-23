@@ -24,7 +24,7 @@ addTaskBtn.addEventListener('click',() => {
     description.value = '';    
 });
 
-//event listener for add task button.
+//event listener for add task button which runs a function.
 submitBtn.addEventListener('click', getValues);
 
 //event listener for closing button.
@@ -51,6 +51,7 @@ function getValues() {
     storeLocally();
     //remove blur filter and hide form when add task button is clicked.
     const ul = document.getElementsByClassName('task-list')[0];
+    //remove the background blur and hide form.
     ul.style.filter = 'none';
     form.style.display = 'none';
 }
@@ -68,26 +69,54 @@ function displayTask() {
     taskArray = storedData;
     //check if any tasks exists locally
     if(taskArray.length !== 0) {
-        //get locally stored data and parse it into readable form.
-        // console.log(storedData[0].taskHeadData);
         //get ul element and create child element for displaying tasks.
         const ul = document.getElementsByClassName('task-list')[0];
+        //removing already displayed tasks.
+        ul.innerHTML = '';
         storedData.forEach(element => {
+            //format to display data in.
             let displayData = `${element.taskHeadData},to be accomplished on ${element.dateData}. Description: ${element.descData}, Priority: ${element.impData}.`;
             //creating li for displaying tasks.
             const li = document.createElement('li');
+            // setting li id
             li.setAttribute('id', `item-${storedData.indexOf(element)}`);
-            li.textContent += displayData;
+            // assigning value to li for displaying
+            li.innerText = displayData;
+            //creating a delete button.
+            const deleteBtn = document.createElement('button');
+            // giving id to delete btn
+            deleteBtn.setAttribute('id', `item-${storedData.indexOf(element)}`);
+            deleteBtn.innerText = 'Delete';
+            //appending button and li as children.
+            li.appendChild(deleteBtn);
             ul.appendChild(li);
+
+            //adding event listener for deleting tasks
+            deleteBtn.addEventListener('click', () => {
+                let btnValue = deleteBtn.getAttribute('id');
+                // console.log(btnValue);
+                deleteTask(btnValue);                
+            });
         });
         
-    }
-    // if no tasks are available, prompt user to enter new tasks.
-    else {
-        prompt('No Tasks Available! Please enter new task.');
-    }    
+    }  
 }
 
+//delete funtion
+function deleteTask(btnValue) {
+    //getting th specific li element using id
+    const li = document.getElementById(btnValue);
+    //removing the element from li
+    li.remove();
+    let btnString = String(btnValue);
+    btnString = btnString.slice(5);
+    //removing the deleted element from array
+    taskArray.splice(btnString, 1);
+    //updating list in local storage
+    storeLocally();
+}
 
-
+//run this function for displaying tasks from local storage
 displayTask();
+//Empty local storage
+// localStorage.setItem('taskArray', '');

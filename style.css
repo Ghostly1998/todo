@@ -1,26 +1,27 @@
+/* setting the default page style */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Mukta', sans-serif;
 }
-
+/* setting up website content using grid */
 .container{
     display: grid;
     grid-template-columns: 1fr;
 }
-
+/* navabar background and text color */
 .navbar{
     background: rgb(218, 66, 11);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-
+/* logo image dimensions */
 .logo img{
     width: 50px;
     height: 55px;
 }
-
+/* setting text color, alignment of navbar options */
 .main-menu{
     list-style: none;
     display: flex;
@@ -28,41 +29,41 @@
     color: white;
     justify-content: end;
 }
-
+/* setting text size and hover effect of navbar options */
 .main-menu li{
     font-size: 20px;
     color: inherit;
     padding: 20px;
     transition: transform .1s;
 }
-
+/* changing scale once hovered over and changing the cursor */
 .main-menu li:hover{
     transform: scale(1.1);
     cursor: pointer;
 }
-
+/* removing the default link styling */
 .main-menu a{
     text-decoration: inherit;
     color: inherit;
 }
-
+/* setting up page for main section */
 .section{
     display: grid;
     min-height: 500px;
     grid-template-columns: 1fr;
 }
-
+/* setting up form styling, border, position. */
 .form{
     display: none;
     max-width: 300px;
     min-width: 300px;
     position: absolute;
-    border: solid 5px red;
+    border: solid 1px black;
     margin-top: 50px;
     margin-left: 50px;
     z-index: 2;
 }
-
+/* form options are positioned and aligned */
 .form label {
     width: 40%;
     padding: 0px;
@@ -74,34 +75,34 @@
 .form input {
     float: left;
 }
-
+/* removing default list styling */
 .form ul{
     list-style: none;
 }
-
+/* centering the buttons */
 .btns{
     width: 100%;
     float: inline-end;
     text-align: center;
     padding-top: 5px;
 }
-
+/* setting up footer */
 .footer{
     border-top: solid black .5px;
     min-height: 100px;
     text-align: center;
     font-size: 19px;
 }
-
+/* footer image */
 .footer img, p{
     padding: 8px;
 }
-
+/* removing default styling from ul for displaying tasks  */
 .task-list{
     font-size: large;
     list-style: none;
 }
-
+/* setting borders, hover effect, shadows for dipsplaying tasks. */
 .task-list li{
     border: solid black 0.2px;
     margin: 5px 0px 5px 0px;
